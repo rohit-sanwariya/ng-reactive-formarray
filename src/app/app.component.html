@@ -1,5 +1,11 @@
-<ng-container >
-  <ng-container >
-    <div *ngFor=""></div>
+<ng-container [formGroup]="_service.formGroup" >
+  <ng-container  formArrayName="array">
+    <div *ngFor="let todo of _service.array.controls;let idx = index;">
+
+      <ng-container [formGroupName]="idx">
+      <p > <input type="checkbox" formControlName="completed"   >{{todo.value.title}}</p>
+
+      </ng-container>
+    </div>
   </ng-container>
 </ng-container>
